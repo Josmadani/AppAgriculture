@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="AppAgriculture.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:AppAgriculture"
+    xmlns:myLoginPage="clr-namespace:AppAgriculture.Views.Login"
+    xmlns:myDashboard="clr-namespace:AppAgriculture.Views.Home"
+    xmlns:modelsIcons="clr-namespace:AppAgriculture.Models.Icons"
+    Shell.TabBarIsVisible="False"
+    x:Name="MyAppShell">
+
+    <ShellContent 
+        FlyoutItemIsVisible="False"
+        Shell.FlyoutBehavior="Disabled"
+        ContentTemplate="{DataTemplate myLoginPage:LoadingPage}"
+        Route="LoadingPage"
+        />
+
+    <ShellContent
+        Title="Inicio"
+        x:Name="MyLoginPage"
+        FlyoutItemIsVisible="False"
+        Shell.FlyoutBehavior="Disabled"
+        ContentTemplate="{DataTemplate myLoginPage:LoginPage}"
+        Route="LoginPage"
+        />
+
+    <FlyoutItem Route="DashboardPage" FlyoutDisplayOptions="AsMultipleItems">
+        <ShellContent
+            Title="Dashboard"
+            x:Name="MyDashboard"
+            Icon="{x:Static modelsIcons:IconsModel.DashboardIcon}"
+            ContentTemplate="{DataTemplate myDashboard:DashboardPage}"
+         />
+
+        <ShellContent
+        x:Name="MyRequest"
+        Title="Solicitudes"
+            Icon="{x:Static modelsIcons:IconsModel.TractorWorkIcon}"
+        ContentTemplate="{DataTemplate myDashboard:DashboardPage}"/>
+    </FlyoutItem>
+
+    <Shell.FlyoutFooter>
+        <StackLayout Padding="20">
+            <Button Text="Salir"/>
+        </StackLayout>
+    </Shell.FlyoutFooter>
+</Shell>

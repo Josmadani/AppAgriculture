@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppAgriculture.Views.Login.LoginPage"
+             xmlns:handlers="clr-namespace:AppAgriculture.Handlers"
+             Title="Agricultura">
+    <VerticalStackLayout
+        Spacing="2"
+        Padding="5,0"
+        VerticalOptions="CenterAndExpand">
+
+        <Image Source="company_logo.png" HeightRequest="75" WidthRequest="150"/>
+
+        <VerticalStackLayout Spacing="5">
+            <Label Text="Welcome!"
+                   FontSize="28"
+                   HeightRequest="50"
+                   WidthRequest="150"
+                   TextColor="Gray"/>
+            <Label Text="Ingrese sus Credenciales"
+                   FontSize="20"
+                   TextColor="Gray"
+                   HorizontalTextAlignment="Center"/>
+        </VerticalStackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Frame ZIndex="1"
+                   HasShadow="True"
+                   BorderColor="White"
+                   HeightRequest="56"
+                   WidthRequest="56"
+                   CornerRadius="28">
+                <Image Source="user.png"
+                       HeightRequest="20"
+                       WidthRequest="20" />
+            </Frame>
+            <Frame Padding="0"
+                   HeightRequest="45"
+                   HasShadow="True"
+                   BorderColor="White"
+                   CornerRadius="15"
+                   HorizontalOptions="FillAndExpand"
+                   Margin="-20,0,0,0" >
+                <handlers:BorderlessEntry Margin="20,0,0,0"
+                                          VerticalOptions="Center"
+                                          Placeholder="Usuario"
+                                          Text="{Binding UserName}" />
+            </Frame>
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Frame ZIndex="1"
+                   HasShadow="True"
+                   BorderColor="White"
+                   HeightRequest="56" WidthRequest="56"
+                   CornerRadius="28">
+                <Image Source="lock.png"
+                       HeightRequest="20"
+                       WidthRequest="20" />
+            </Frame>
+            <Frame Padding="0"
+                   HeightRequest="45"
+                   HasShadow="True"
+                   BorderColor="White"
+                   CornerRadius="15"
+                   HorizontalOptions="FillAndExpand"
+                   Margin="-20,0,0,0" >
+                <handlers:BorderlessEntry Margin="20,0,0,0"
+                                          VerticalOptions="Center"
+                                          Placeholder="Contraseña"
+                                          IsPassword="True"
+                                          Text="{Binding PassWord}" />
+            </Frame>
+        </StackLayout>
+
+        <Button Text="Iniciar Sesion"
+                WidthRequest="100"
+                CornerRadius="20"
+                HorizontalOptions="FillAndExpand"
+                BackgroundColor="#0792EF"
+                TextColor="White"
+                IsEnabled="{Binding IsEnabled}"
+                Command="{Binding LoginCommand}"/>
+
+        <ActivityIndicator x:Name="AcivatyIndicator"
+                           IsRunning="{Binding IsLoading}"
+                           IsVisible="{Binding IsVisible}"
+                           Color="Red"
+                           HeightRequest="100"
+                           WidthRequest="100"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" />
+    </VerticalStackLayout>
+</ContentPage>

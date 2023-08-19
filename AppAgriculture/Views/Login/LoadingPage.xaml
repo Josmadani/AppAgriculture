@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppAgriculture.Views.Login.LoadingPage"
+             Title="LoadingPage">
+    <VerticalStackLayout>
+        <ActivityIndicator IsRunning="True"
+                           Color="Green"
+                           HeightRequest="40"
+                           WidthRequest="40"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center" />
+
+        <Label Text="[]"
+               TextColor="Red" />
+    </VerticalStackLayout>
+</ContentPage>
